@@ -250,7 +250,7 @@ export class InteractionManager {
     if (!startTarget && !this.raycasterManager.pointerOnCanvas) return;
     const target = this._intersection[event.pointerId]?.object ?? this._renderManager.activeScene;
 
-    if (event.pointerType !== 'mouse') {
+    if (event.pointerType !== 'mouse' && target) {
       target.__hovered = false;
       this.triggerAncestorPointer('pointerout', event, target);
       this.triggerPointer('pointerleave', event, target);
